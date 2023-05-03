@@ -6,7 +6,6 @@ import { fetchContacts } from 'redux/operations';
 import { getContacts } from 'redux/selectors';
 import { useEffect } from 'react';
 import { Blocks } from 'react-loader-spinner';
-// import { css } from 'styled-components';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -25,13 +24,14 @@ export const App = () => {
       <h2>Contacts</h2>
 
       <Filter />
-      {isLoading && !error &&  <Blocks
-            visible={true}
-            height="80"
-            width="80"
-        ariaLabel="blocks-loading"
-        // wrapperClass={blocksWrapper}
-            />}
+      {isLoading && !error && (
+        <Blocks
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="blocks-loading"
+        />
+      )}
       {items.length > 0 && <ContactList />}
     </>
   );
