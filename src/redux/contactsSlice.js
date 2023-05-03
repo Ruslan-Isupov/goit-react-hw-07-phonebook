@@ -37,14 +37,13 @@ const contactsSlice = createSlice({
     },
 
     [deleteContact.fulfilled](state, action) {
-      console.log(action.payload.id);
       state.isLoading = false;
       state.error = null;
       state.item = state.items.filter(
         contact => contact?.id !== action.payload.id
       );
       const index = state.items.findIndex(
-        contact => contact.id === action.payload.id
+        contact => contact.id === action.payload
       );
       state.items.splice(index, 1);
     },
